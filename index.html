@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Search Lens — Built for LinkedIn Jobs</title>
+  <meta name="description" content="Chrome extension built for LinkedIn Jobs. Dim viewed, saved, and applied cards. See company size inline. Highlight saved keywords on LinkedIn — and any other site you browse. Local-only.">
+  <meta name="theme-color" content="#0b1220">
+  <meta property="og:title" content="Job Search Lens — Built for LinkedIn Jobs">
+  <meta property="og:description" content="Dim cards you've already processed. See company size inline. Highlight saved keywords on LinkedIn — and anywhere else you browse.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://madhushanandawaththa.github.io/job-search_lens/">
+  <meta property="og:image" content="assets/store/og-image-1200x630.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/icons/icon32.png">
+  <link rel="apple-touch-icon" href="assets/icons/icon128.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-nav">
+    <a class="nav-brand" href="index.html">
+      <img src="assets/icons/icon32.png" alt="">
+      Job Search Lens
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ───────────────────────────── Hero ───────────────────────────── -->
+    <section class="hero">
+      <span class="hero-eyebrow">
+        <span class="version-pill">v1.3</span>
+        Built for LinkedIn Jobs · highlights work everywhere else
+      </span>
+      <h1>Stop re-reading the<br><span class="hl">same LinkedIn jobs.</span></h1>
+      <p class="hero-sub">
+        Job Search Lens dims cards LinkedIn already labels Viewed, Saved, or Applied,
+        adds inline company size and LinkedIn member counts, and highlights your saved
+        keywords. On LinkedIn first — and on every other site you browse.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="https://chrome.google.com/webstore/category/extensions"
+           target="_blank" rel="noopener">
+          Get the extension
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a class="btn-secondary" href="#how">How it works</a>
+      </div>
+      <p class="btn-meta">Free · Privacy-first · Local-only · Chrome MV3</p>
+    </section>
+
+    <!-- ─────────────── Hero mockup ─────────────── -->
+    <div class="hero-mockup-wrap">
+      <div class="hero-mockup">
+        <div class="browser-frame">
+          <div class="browser-chrome">
+            <div class="browser-dots"><span></span><span></span><span></span></div>
+            <div class="browser-url">linkedin.com/jobs/search</div>
+          </div>
+          <div class="browser-body">
+
+            <div class="job-row">
+              <div class="job-logo">Pn</div>
+              <div class="job-body">
+                <div class="job-title">Senior <span class="job-tag tag-yellow">Python</span> Backend Engineer</div>
+                <div class="job-company">Pinion · Remote · United States</div>
+                <div class="job-meta"><span class="job-tag tag-green">Django</span>, <span class="job-tag tag-blue">PostgreSQL</span>, <span class="job-tag tag-pink">AWS</span> · $160K – $210K · Posted 2d ago</div>
+                <div class="company-stat-row">
+                  <span class="company-stat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+                    201–500 employees
+                  </span>
+                  <span class="company-stat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="7" r="3"/></svg>
+                    34,210 on LinkedIn
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="job-row is-dimmed">
+              <div class="job-logo is-acme">Ac</div>
+              <div class="job-body">
+                <div class="job-title">Lead Platform Engineer</div>
+                <div class="job-company">Acme Studio · San Francisco, CA</div>
+                <span class="state-badge viewed">Viewed</span>
+              </div>
+            </div>
+
+            <div class="job-row is-saved">
+              <div class="job-logo is-northwind">Nw</div>
+              <div class="job-body">
+                <div class="job-title">Staff <span class="job-tag tag-yellow">Python</span> Engineer, Infrastructure</div>
+                <div class="job-company">Northwind Labs · Hybrid · Berlin</div>
+                <span class="state-badge saved">Saved</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <aside class="float-popup" aria-label="Job Search Lens popup preview">
+          <div class="popup-head">
+            <span class="popup-title">Highlights</span>
+            <span class="popup-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            </span>
+          </div>
+          <div class="popup-input">Add a keyword…</div>
+          <div class="popup-kw-row"><span class="popup-swatch" style="background:#ffe082"></span><span class="popup-term">Python</span><span class="popup-x">×</span></div>
+          <div class="popup-kw-row"><span class="popup-swatch" style="background:#a5d6a7"></span><span class="popup-term">Django</span><span class="popup-x">×</span></div>
+          <div class="popup-kw-row"><span class="popup-swatch" style="background:#81d4fa"></span><span class="popup-term">PostgreSQL</span><span class="popup-x">×</span></div>
+          <div class="popup-kw-row"><span class="popup-swatch" style="background:#f8bbd0"></span><span class="popup-term">AWS</span><span class="popup-x">×</span></div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ───────────────────────────── Features ───────────────────────────── -->
+    <section id="features" class="section">
+      <div class="section-inner">
+        <p class="section-label">Features</p>
+        <h2 class="section-title">Four tools that make LinkedIn Jobs&nbsp;bearable.</h2>
+        <p class="section-lede">No "AI matching", no "smart ranking". Just lightweight, inspectable utilities
+          that fix the things LinkedIn Jobs gets wrong every day.</p>
+
+        <div class="feature-grid">
+
+          <article class="feature-card is-wide">
+            <span class="feature-pill is-linkedin"><span class="dot"></span>LinkedIn — flagship feature</span>
+            <h2>Dim cards you've already processed</h2>
+            <p>LinkedIn already <em>knows</em> which jobs you've Viewed, Saved, and Applied to — it just refuses to let you hide them. Job Search Lens fades them automatically. Independent toggles per state. Stop re-reading the same listings fifteen times.</p>
+            <div class="mini-dim-stack">
+              <div class="mini-dim-row dim"><span class="state-dot viewed"></span>Viewed · Lead Platform Engineer · Acme</div>
+              <div class="mini-dim-row dim"><span class="state-dot saved"></span>Saved · Staff Python Engineer · Northwind</div>
+              <div class="mini-dim-row"><span class="state-dot applied"></span>Applied · Director of Engineering · Pinion</div>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-pill is-linkedin"><span class="dot"></span>LinkedIn</span>
+            <h2>Company size, inline</h2>
+            <p>Company size range and LinkedIn employee count appear next to the job title.
+              Judge company fit before you open the listing.</p>
+            <div class="mini-stat-row">
+              <span class="company-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg>
+                201–500 employees
+              </span>
+              <span class="company-stat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+                34K on LinkedIn
+              </span>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-pill is-universal"><span class="dot"></span>LinkedIn + everywhere</span>
+            <h2>Keyword highlights</h2>
+            <p>Save the terms that matter (techs, roles, locations). They light up on LinkedIn — and as a bonus, on Indeed, Glassdoor, Seek, and any other site you browse. Right-click selected text to add instantly.</p>
+            <div class="mini-highlight-row">
+              <span class="job-tag tag-yellow">Python</span> backend engineer with
+              <span class="job-tag tag-green">Django</span> and
+              <span class="job-tag tag-blue">PostgreSQL</span>.
+            </div>
+          </article>
+
+          <article class="feature-card is-wide">
+            <span class="feature-pill is-privacy"><span class="dot"></span>Privacy</span>
+            <h2>Local-only by construction</h2>
+            <p>Your keywords, colors, and settings live in <code>chrome.storage.local</code> on your device.
+              No accounts, no telemetry, no sync, no remote code. Every file that ships in the extension
+              package is inspectable via <code>chrome://extensions</code>.</p>
+            <div class="mini-highlight-row" style="color: var(--muted-soft); font-size: 13px;">
+              0 network calls · 0 analytics SDKs · 0 servers
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────────────────────── How it works ───────────────────────────── -->
+    <section id="how" class="section tinted">
+      <div class="section-inner">
+        <p class="section-label">How it works</p>
+        <h2 class="section-title">Three steps. Then forget it's installed.</h2>
+        <p class="section-lede">Once your keywords are saved, the extension just runs.
+          No dashboards to babysit, no notifications, no daily prompts.</p>
+
+        <ol class="steps">
+          <li class="step">
+            <strong>Install</strong>
+            <p>One-click install from the Chrome Web Store. No account creation,
+              no email confirmation, no onboarding flow.</p>
+          </li>
+          <li class="step">
+            <strong>Open LinkedIn Jobs</strong>
+            <p>Viewed, saved, and applied cards fade automatically. Company size and
+              LinkedIn employee count appear next to the job title. Save keywords from the popup
+              or right-click any text on the page.</p>
+          </li>
+          <li class="step">
+            <strong>Keep your keywords with you</strong>
+            <p>Your highlight terms also light up on Indeed, Glassdoor, Seek, and any other site —
+              so the same vocabulary follows you around the web.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ───────────────────────────── Permissions ───────────────────────────── -->
+    <section class="section">
+      <div class="section-inner narrow">
+        <p class="section-label">Permissions</p>
+        <h2 class="section-title">Small, justified, inspectable.</h2>
+        <p class="section-lede">Every permission is here because a specific feature needs it.
+          Nothing speculative.</p>
+
+        <table class="perm-table">
+          <thead>
+            <tr><th>Permission</th><th>Why it's needed</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>contextMenus</code></td><td>Add selected text as a keyword via right-click on any page.</td></tr>
+            <tr><td><code>storage</code></td><td>Save keywords, colors, and dim-state settings locally in the browser.</td></tr>
+            <tr><td><code>activeTab</code></td><td>Let the popup talk to the active tab for status and match navigation.</td></tr>
+            <tr><td><code>http://*/*</code> <br><code>https://*/*</code></td><td>Required for keyword highlighting to work on every site. LinkedIn-specific dimming and stats remain scoped to LinkedIn Jobs.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ───────────────────────────── Privacy strip ───────────────────────────── -->
+    <section class="privacy-strip">
+      <div class="section-inner">
+        <p class="section-label">Local-only</p>
+        <h2 class="section-title">Your job search stays yours.</h2>
+        <p class="section-lede">Six promises we keep by simply not writing the code:</p>
+
+        <ul class="never-list">
+          <li><span class="check">✓</span>No telemetry</li>
+          <li><span class="check">✓</span>No analytics SDKs</li>
+          <li><span class="check">✓</span>No external API calls</li>
+          <li><span class="check">✓</span>No remote code execution</li>
+          <li><span class="check">✓</span>No accounts or sign-in</li>
+          <li><span class="check">✓</span>No cloud sync</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ───────────────────────────── CTA closer ───────────────────────────── -->
+    <section class="cta-closer">
+      <h2>Take back your <span class="hl">LinkedIn job search.</span></h2>
+      <p>Install once. Run forever. Nothing leaves your browser, ever.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="https://chrome.google.com/webstore/category/extensions"
+           target="_blank" rel="noopener">
+          Get it on Chrome
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a class="btn-secondary" href="support.html">Read the docs</a>
+      </div>
+    </section>
+
+    <!-- ───────────────────────────── Author ───────────────────────────── -->
+    <section class="author-section">
+      <img class="author-avatar" src="https://github.com/MadhushanAndawaththa.png" alt="Madhushan Andawaththa">
+      <p class="author-label">Built by</p>
+      <a class="author-link" href="https://linkedin.com/in/thiwankamadhushan" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+        </svg>
+        Madhushan Andawaththa
+      </a>
+      <p class="author-meta">
+        <a class="author-meta-link" href="https://linkedin.com/in/thiwankamadhushan" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="author-meta-sep"></span>
+        <a class="author-meta-link" href="https://github.com/MadhushanAndawaththa" target="_blank" rel="noopener">GitHub</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <span class="footer-sep"></span>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <span class="footer-sep"></span>
+      <a href="support.html">Support</a>
+      <span class="footer-sep"></span>
+      <a href="https://github.com/MadhushanAndawaththa/job-search_lens/issues" target="_blank" rel="noopener">Report a bug</a>
+    </div>
+    <p class="footer-copy">© 2026 Madhushan Andawaththa · Job Search Lens</p>
+  </footer>
+
+</body>
+</html>
